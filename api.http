@@ -3,6 +3,7 @@ GET http://localhost:3000/prefixo/test
 ###
 GET http://localhost:3000/categories
 
+
 ###
 GET http://localhost:3000/categories/3
 
@@ -11,8 +12,8 @@ POST http://localhost:3000/categories
 Content-Type: application/json
 
 {
-    "name": "Category supertest",
-    "description": "Category supertest"
+    "name": "categoria test4",
+    "description": "5"
 }
 
 ###
@@ -20,9 +21,49 @@ PATCH http://localhost:3000/categories/1
 Content-Type: application/json
 
 {
-    "name": "documentário updated",
     "description": "xpto"
 }
 
 ###
-DELETE http://localhost:3000/categories/3
+DELETE http://localhost:3000/categories/1
+
+
+###
+GET http://localhost:3000/videos
+
+###
+POST http://localhost:3000/videos
+Content-Type: application/json
+
+{
+    "title": "video test",
+    "description": "video test",
+    "category_id": 10
+}
+
+###
+POST http://localhost:3000/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary1234
+
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="title"
+
+Video 1
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="description"
+
+Description 1
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="category_id"
+
+1
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="file"; filename="ParamorePericles.mp4"
+Content-Type: video/mp4
+
+< ./Perimore.mp4
+------WebKitFormBoundary1234--
+
+
+###
+GET http://localhost:3000/videos/file/1692113031812.6626.mp4
